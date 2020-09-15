@@ -1,34 +1,21 @@
-// function App() {
-//     return React.createElement(
-//         "div",
-//         {
-//             id: "app"
-//         },
-//         [
-//             React.createElement(
-//                 "h1",
-//                 null,
-//                 "Hello world"
-//             ),
-//             React.createElement(
-//                 "p",
-//                 null,
-//                 "Lets learn ReactJS"
-//             ),
-//         ]
-//     )
-// }
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 function CV(props) {
-    return React.createElement(
-        "div",
-        {},
-        [
-            React.createElement('h2', {}, props.name),
-            React.createElement('h4', {}, props.prof),
-            React.createElement('h4', {}, props.spec),
-        ]
-    )
+    // return React.createElement(
+    //     "div",
+    //     {},
+    //     [
+    //         React.createElement('h2', {}, props.name),
+    //         React.createElement('h4', {}, props.prof),
+    //         React.createElement('h4', {}, props.spec),
+    //     ]
+    // )
+    return <div>
+        <h2>{props.name}</h2>
+        <h4>{props.prof}</h4>
+        <h4>{props.spec}</h4>
+    </div>
 }
 
 function App() {
