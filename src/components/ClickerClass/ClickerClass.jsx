@@ -5,14 +5,22 @@ class ClickerClass extends Component {
         count: 0
     }
 
-    clickHandler = () => {
-        this.setState({count: this.state.count + 1})
+    clickHandler = (number) => {
+        this.setState({count: this.state.count + number})
     }
 
     render() {
-        return <button onClick={this.clickHandler}>
-            {this.state.count}
-        </button>
+        return <div>
+            <button onClick={() => this.clickHandler(-1)}>
+                -
+            </button>
+            <span style={{padding: '0 1rem'}}>
+                {this.state.count}
+            </span>
+            <button onClick={() => this.clickHandler(1)}>
+                +
+            </button>
+        </div>
     }
 }
 
