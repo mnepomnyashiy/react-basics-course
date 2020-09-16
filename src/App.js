@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       Hello from React
       <br />
-      {/* <ClickerFn /> */}
+      <ClickerFn />
       <br />
       <ClickerClass />
     </div>
