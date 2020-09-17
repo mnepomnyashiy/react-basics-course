@@ -1,4 +1,4 @@
-.post-list {
+.post-list, .user-list {
     display: flex;
     flex-wrap: wrap;
     

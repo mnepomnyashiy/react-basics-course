@@ -13,18 +13,9 @@ const PostList = () => {
             .then(data => setPosts(data))
     }, []);
 
-    // if (posts[0]) {
-    //     return <PostItem 
-    //     title={posts[0].title}
-    //     body={posts[0].body}
-    //     />
-    // } else {
-    //     return <Loading />
-    // }
-
     return <div className="post-list">
         {posts[0] ? posts.map(
-            (post, index) => {
+            (post) => {
                 return <PostItem 
                     key={post.id}
                     title={post.title}
