@@ -3,3 +3,8 @@
     flex-wrap: wrap;
     
 }
+
+input {
+    margin: 1rem;
+    max-width: 300px;
+}
