@@ -3,7 +3,8 @@ import React from 'react';
 const GoodsItem = (props) => {
     const {
         name,
-        price
+        price,
+        setOrder,
     } = props;
 
     return <div className="card" style={{maxWidth: '300px'}}>
@@ -15,7 +16,7 @@ const GoodsItem = (props) => {
     <div className="card-body">
       <h5 className="card-title">{name}</h5>
       <p className="card-text">Цена: {price} руб.</p>
-      <button className="btn btn-primary">Купить</button>
+      <button className="btn btn-primary" onClick={() => setOrder(props)}>Купить</button>
     </div>
   </div>
 }
