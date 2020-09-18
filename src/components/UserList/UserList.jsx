@@ -3,14 +3,16 @@ import React from 'react';
 import Loading from '../Loading/Loading';
 import UserItem from '../UserItem/UserItem';
 
-const UserList = ({users, loading}) => {
+const UserList = ({users, loading, isChecked}) => {
+    const usersToDOM = isChecked ? users.filter((user) => user.id > 1000000) : users;
+    
     if (loading) {
         return <Loading />
     }
 
     return <div className="user-list">
         {
-            users.length ? users.map(user => (
+            usersToDOM.length ? usersToDOM.map(user => (
                 <UserItem key={user.login} {...user} />
             )) : 'Пользователей нет.'
         }

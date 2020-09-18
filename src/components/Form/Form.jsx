@@ -1,23 +1,25 @@
 import React, {useState} from 'react';
 
-const Form = ({setLoading, setUsers}) => {
+const Form = ({setLoading, setUsers, isChecked, setIsChecked}) => {
     const [searchInput, setSearchInput] = useState('');
-    const [isChecked, setIsChecked] = useState(false);
-    // const [selectValue, setSelectValue] = useState('1');
 
     const handleInputChange = (e) => {
-        setSearchInput(e.target.value);
+        setSearchInput(e.target.value);    
+    }
 
-        if (e.target.value !== '') {
-            setLoading(true);
-            fetch(`https://api.github.com/search/users?q=${e.target.value}`)
-                .then(response => response.json())
-                .then(data => {
-                    setUsers(data.items);
-                    setLoading(false);
-                })
-                .catch(() => setLoading(false))
-        }    
+    const handleKey = (e) => {
+        if(e.key === "Enter") {
+            if (e.target.value !== '') {
+                setLoading(true);
+                fetch(`https://api.github.com/search/users?q=${e.target.value}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        setUsers(data.items);
+                        setLoading(false);
+                    })
+                    .catch(() => setLoading(false))
+            }
+        }
     }
 
     return <form onSubmit={(e) => {e.preventDefault()}}>
@@ -27,6 +29,7 @@ const Form = ({setLoading, setUsers}) => {
             className="form-control"
             onChange={handleInputChange}
             value={searchInput}
+            onKeyDown={handleKey}
         />
 
         <div className="form-group form-check">
@@ -39,21 +42,6 @@ const Form = ({setLoading, setUsers}) => {
             />
             <label className="form-check-label" htmlFor="exampleCheck1">Только новые пользователи</label>
         </div>
-
-        {/* <div className="form-group">
-            <label htmlFor="exampleFormControlSelect1">Example select</label>
-            <select
-                className="form-control"
-                id="exampleFormControlSelect1"
-                onChange={e => {setSelectValue(e.target.value)}}
-                value={selectValue}
-            >
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-        </div> */}
     </form>
 }
 
